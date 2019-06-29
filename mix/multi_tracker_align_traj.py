@@ -52,10 +52,10 @@ def main():
     pipe = rs.pipeline()
     cfg = rs.config()
     cfg.enable_device_from_file(str(args.input))
-    # height = 480
-    # width = 640
-    height = 720
-    width = 1280
+    height = 480
+    width = 640
+    # height = 720
+    # width = 1280
     # //cfg.enable_stream(RS2_STREAM_COLOR); //this will cause seg fault in Mat(...)
     # cfg.enable_stream(RS2_STREAM_COLOR, RS2_FORMAT_BGR8)
     cfg.enable_stream(rs.stream.depth, width, height, rs.format.z16, 30) 

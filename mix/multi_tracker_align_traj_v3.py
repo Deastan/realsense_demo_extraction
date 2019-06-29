@@ -257,9 +257,9 @@ def main():
     number_frame = 0
     while number_frame<=number_frame_max-1:
         frameset = pipe.wait_for_frames()
-        frameset.keep()
+        # frameset.keep()
         #align frame set
-        print(frameset)
+        # print(frameset)
         frameset = align.process(frameset)
         #get frame
         color_frame = frameset.get_color_frame()
@@ -273,12 +273,12 @@ def main():
         # print(dist)
         depth_intrin = depth_frame.profile.as_video_stream_profile().intrinsics
 
-        print("object")
+        # print("object")
         depth_point_in_meters_camera_coords_object = rs.rs2_deproject_pixel_to_point(depth_intrin, [list_x_pixel_object[number_frame], list_y_pixel_object[number_frame]], dist_obj)
-        print(depth_point_in_meters_camera_coords_object)
+        # print(depth_point_in_meters_camera_coords_object)
         depth_point_in_meters_camera_coords_pusher = rs.rs2_deproject_pixel_to_point(depth_intrin, [list_x_pixel_pusher[number_frame], list_y_pixel_pusher[number_frame]], dist_pusher)
         
-        print(depth_point_in_meters_camera_coords_pusher)
+        # print(depth_point_in_meters_camera_coords_pusher)
         # print("trajectory: ",trajectory_object)
         # print("dept_vect: ",depth_point_in_meters_camera_coords_object)
         
