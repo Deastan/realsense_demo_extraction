@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/jonathan/Documents/Git/realsense/Tracker/tracking/tracker_test.cpp
+opencv2/core/utility.hpp
+-
+opencv2/tracking.hpp
+-
+opencv2/videoio.hpp
+-
+opencv2/highgui.hpp
+-
+iostream
+-
+cstring
+-
+

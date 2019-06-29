@@ -1,0 +1,48 @@
+Thread 7 "python" received signal SIGSEGV, Segmentation fault.
+[Switching to Thread 0x7fffc51a2700 (LWP 17298)]
+__memmove_avx_unaligned_erms () at ../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:371
+371     ../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S: No such file or directory.
+(gdb) backtrace
+#0  0x00007ffff7b72c40 in __memmove_avx_unaligned_erms () at ../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:371
+#1  0x00007fffcc3aada5 in XXH32_update () at /usr/lib/x86_64-linux-gnu/liblz4.so.1
+#2  0x00007fffc83b08de in decompressBlock () at /home/jonathan/Documents/venv/venv_realsense/lib/python3.6/site-packages/pyrealsense2/pyrealsense2.cpython-36m-x86_64-linux-gnu.so
+#3  0x00007fffc83b09f9 in roslz4_decompress () at /home/jonathan/Documents/venv/venv_realsense/lib/python3.6/site-packages/pyrealsense2/pyrealsense2.cpython-36m-x86_64-linux-gnu.so
+#4  0x00007fffc83b0b8d in roslz4_buffToBuffDecompress ()
+
+
+*********************SECONDE TIME*****************************
+Thread 7 "python" received signal SIGSEGV, Segmentation fault.
+[Switching to Thread 0x7fffc51a2700 (LWP 17680)]
+__memmove_avx_unaligned_erms () at ../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:371
+371     ../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S: No such file or directory.
+(gdb) backtrace
+#0  0x00007ffff7b72c40 in __memmove_avx_unaligned_erms () at ../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:371
+#1  0x00007fffcc3aada5 in XXH32_update () at /usr/lib/x86_64-linux-gnu/liblz4.so.1
+#2  0x00007fffc83b08de in decompressBlock () at /home/jonathan/Documents/venv/venv_realsense/lib/python3.6/site-packages/pyrealsense2/pyrealsense2.cpython-36m-x86_64-linux-gnu.so
+#3  0x00007fffc83b09f9 in roslz4_decompress () at /home/jonathan/Documents/venv/venv_realsense/lib/python3.6/site-packages/pyrealsense2/pyrealsense2.cpython-36m-x86_64-linux-gnu.so
+#4  0x00007fffc83b0b8d in roslz4_buffToBuffDecompress ()
+    at /home/jonathan/Documents/venv/venv_realsense/lib/python3.6/site-packages/pyrealsense2/pyrealsense2.cpython-36m-x86_64-linux-gnu.so
+#5  0x00007fffc83aeff1 in rosbag::LZ4Stream::decompress(unsigned char*, unsigned int, unsigned char*, unsigned int) ()
+    at /home/jonathan/Documents/venv/venv_realsense/lib/python3.6/site-packages/pyrealsense2/pyrealsense2.cpython-36m-x86_64-linux-gnu.so
+#6  0x00007fffc839f85c in rosbag::ChunkedFile::decompress(rosbag::compression::CompressionType, unsigned char*, unsigned int, unsigned char*, unsigned int) ()
+    at /home/jonathan/Documents/venv/venv_realsense/lib/python3.6/site-packages/pyrealsense2/pyrealsense2.cpython-36m-x86_64-linux-gnu.so
+#7  0x00007fffc83a976b in rosbag::Bag::decompressChunk(unsigned long) const ()
+    at /home/jonathan/Documents/venv/venv_realsense/lib/python3.6/site-packages/pyrealsense2/pyrealsense2.cpython-36m-x86_64-linux-gnu.so
+#8  0x00007fffc8249ae2 in std::shared_ptr<diagnostic_msgs::KeyValue_<std::allocator<void> > > rosbag::Bag::instantiateBuffer<diagnostic_msgs::KeyValue_<std::allocator<void> > >(rosbag::IndexEntry const&) const () at /home/jonathan/Documents/venv/venv_realsense/lib/python3.6/site-packages/pyrealsense2/pyrealsense2.cpython-36m-x86_64-linux-gnu.so
+#9  0x00007fffc824a900 in diagnostic_msgs::KeyValue_<std::allocator<void> >::ConstPtr librealsense::ros_reader::instantiate_msg<diagnostic_msgs::KeyValue_<std::allocator<void> > >(rosbag::MessageInstance const&) () at /home/jonathan/Documents/venv/venv_realsense/lib/python3.6/site-packages/pyrealsense2/pyrealsense2.cpython-36m-x86_64-linux-gnu.so
+#10 0x00007fffc821c511 in librealsense::ros_reader::get_frame_metadata(rosbag::Bag const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, librealsense::device_serializer::stream_identifier const&, rosbag::MessageInstance const&, librealsense::frame_additional_data&) ()
+    at /home/jonathan/Documents/venv/venv_realsense/lib/python3.6/site-packages/pyrealsense2/pyrealsense2.cpython-36m-x86_64-linux-gnu.so
+#11 0x00007fffc8225b85 in librealsense::ros_reader::create_image_from_message(rosbag::MessageInstance const&) const ()
+    at /home/jonathan/Documents/venv/venv_realsense/lib/python3.6/site-packages/pyrealsense2/pyrealsense2.cpython-36m-x86_64-linux-gnu.so
+#12 0x00007fffc8228e44 in librealsense::ros_reader::create_frame(rosbag::MessageInstance const&) ()
+    at /home/jonathan/Documents/venv/venv_realsense/lib/python3.6/site-packages/pyrealsense2/pyrealsense2.cpython-36m-x86_64-linux-gnu.so
+#13 0x00007fffc82295d2 in librealsense::ros_reader::read_next_data() ()
+    at /home/jonathan/Documents/venv/venv_realsense/lib/python3.6/site-packages/pyrealsense2/pyrealsense2.cpython-36m-x86_64-linux-gnu.so
+#14 0x00007fffc80e5a4c in  () at /home/jonathan/Documents/venv/venv_realsense/lib/python3.6/site-packages/pyrealsense2/pyrealsense2.cpython-36m-x86_64-linux-gnu.so
+#15 0x00007fffc80e6f3d in  () at /home/jonathan/Documents/venv/venv_realsense/lib/python3.6/site-packages/pyrealsense2/pyrealsense2.cpython-36m-x86_64-linux-gnu.so
+#16 0x00007fffc80a8d3e in std::thread::_Impl<std::_Bind_simple<dispatcher::dispatcher(unsigned int)::{lambda()#1} ()> >::_M_run() ()
+    at /home/jonathan/Documents/venv/venv_realsense/lib/python3.6/site-packages/pyrealsense2/pyrealsense2.cpython-36m-x86_64-linux-gnu.so
+#17 0x00007fffe3bb39e0 in  () at /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+#18 0x00007ffff77cc6db in start_thread (arg=0x7fffc51a2700) at pthread_create.c:463
+#19 0x00007ffff7b0588f in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:95
+ 
